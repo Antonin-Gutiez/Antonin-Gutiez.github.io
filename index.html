@@ -186,6 +186,34 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     </article>
 
     <article class="project flip">
+      <div class="visual" role="img" aria-label="Illustration of a graphene ribbon suspended between two contacts with a tilted paddle at its center">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+          <path d="M0 300H400" stroke="#8EA0FF" stroke-width="1.5" opacity=".6"/>
+          <rect x="30" y="170" width="70" height="130" fill="none" stroke="#8EA0FF" stroke-width="1.5" opacity=".7"/>
+          <rect x="300" y="170" width="70" height="130" fill="none" stroke="#8EA0FF" stroke-width="1.5" opacity=".7"/>
+          <path d="M100 200H300" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <rect x="188" y="170" width="24" height="60" fill="none" stroke="#B9C4FF" stroke-width="1.5" stroke-dasharray="3 5" transform="rotate(0 200 200)"/>
+          <rect x="188" y="170" width="24" height="60" fill="#2748F0" fill-opacity=".35" stroke="#fff" stroke-width="2" transform="rotate(24 200 200)"/>
+          <path d="M236 168A44 44 0 0 1 244 216" fill="none" stroke="#B9C4FF" stroke-width="2" stroke-linecap="round"/>
+          <path d="M120 300V330M280 300V330" stroke="#8EA0FF" stroke-width="1.5" opacity=".6"/>
+        </svg>
+        <span class="slot">Add a COMSOL screenshot</span>
+      </div>
+      <div class="body">
+        <div class="meta">MNIS, Introduction to Finite Element Modeling, Fall 2025 · EPFL · Team of 4</div>
+        <h3>Torsional NEMS device based on a graphene nanoribbon</h3>
+        <p>A finite element model of a graphene ribbon suspended between two contacts, with a metal paddle at its center that rotates when a voltage is applied.</p>
+        <ul>
+          <li>Modeled the coupled electrostatics and solid mechanics in COMSOL Multiphysics 6.3, with electrostatic forces from the Maxwell stress tensor.</li>
+          <li>Studied how voltage, paddle size, gap and ribbon width change the deflection angle and the stress. The deflection grows linearly with voltage and stress peaks at the clamped ends.</li>
+          <li>Computed the first torsional resonance for ribbon widths from 60 to 500 nm: from about 6 MHz to 175 MHz.</li>
+          <li>Documented the numerical limits: ribbon thickened from 0.34 to 1 nm for convergence, and a coarse mesh because of memory.</li>
+        </ul>
+        <div class="tags"><span class="tag">COMSOL Multiphysics</span><span class="tag">Finite element modeling</span><span class="tag">Electromechanical coupling</span><span class="tag">Eigenfrequency analysis</span><span class="tag">NEMS</span></div>
+      </div>
+    </article>
+
+    <article class="project">
       <div class="visual" role="img" aria-label="Illustration of a ceiling radar unit signalling a bedside wellness station">
         <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
           <path d="M40 60H360" stroke="#8EA0FF" stroke-width="1.5" opacity=".6"/>
@@ -213,7 +241,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
       </div>
     </article>
 
-    <article class="project">
+    <article class="project flip">
       <div class="visual" role="img" aria-label="Illustration of a satellite orbiting">
         <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
           <g fill="none" stroke="#8EA0FF" stroke-width="1.2" opacity=".6">
@@ -280,9 +308,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     <div class="skills">
       <div class="group"><h3>Microfabrication</h3><div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">MEMS assembly</span><span class="tag">3D printing</span></div></div>
       <div class="group"><h3>Testing and characterization</h3><div class="tags"><span class="tag">Vibration</span><span class="tag">Shock</span><span class="tag">Thermal testing</span><span class="tag">Electrical characterization</span></div></div>
-      <div class="group"><h3>Simulation and CAD</h3><div class="tags"><span class="tag">COMSOL Multiphysics</span><span class="tag">Ansys Zemax OpticStudio</span><span class="tag">Fusion 360</span></div></div>
+      <div class="group"><h3>Simulation and CAD</h3><div class="tags"><span class="tag">COMSOL Multiphysics</span><span class="tag">Ansys Zemax OpticStudio</span><span class="tag">Fusion 360</span><span class="tag">Finite element modeling</span></div></div>
       <div class="group"><h3>Programming and data</h3><div class="tags"><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">BLE communication</span><span class="tag">Excel</span><span class="tag">Git</span><span class="tag">VS Code</span></div></div>
-      <div class="group"><h3>Languages</h3><div class="tags"><span class="tag">French, native</span><span class="tag">English, B2</span></div></div>
+      <div class="group"><h3>Languages</h3><div class="tags"><span class="tag">French, native</span><span class="tag">English, fluent</span></div></div>
     </div>
   </div>
 </section>
