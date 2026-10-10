@@ -1,164 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonin Gutiez - Microengineering Portfolio</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-      line-height: 1.6;
-      color: #222;
-      background: #fafafa;
-    }
-    header { padding: 50px 0 20px; }
-    h1 { margin: 0; font-size: 2.4em; }
-    .subtitle { color: #555; margin: 6px 0 14px; font-size: 1.15em; }
-    .links a { margin-right: 16px; color: #2563eb; text-decoration: none; font-weight: 500; }
-    .links a:hover { text-decoration: underline; }
-    nav { margin: 20px 0; padding: 10px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-    nav a { margin-right: 18px; color: #333; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #2563eb; }
-    h2 { border-bottom: 2px solid #2563eb; padding-bottom: 4px; margin-top: 45px; }
-    .item { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
-    .item h3 { margin: 0 0 2px; font-size: 1.1em; }
-    .meta { color: #777; font-size: 0.9em; margin-bottom: 8px; }
-    .item p { margin: 6px 0 0; }
-    .skills dt { font-weight: 600; margin-top: 10px; }
-    .skills dd { margin: 2px 0 0 0; color: #444; }
-    footer { margin-top: 60px; color: #888; font-size: 0.9em; text-align: center; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antonin Gutiez – Microengineering Portfolio</title>
+<meta name="description" content="Portfolio of Antonin Gutiez, MSc Microengineering student at EPFL: laser-induced graphene, optical MEMS testing, CanSat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEFF1; --card:#F7F8F9; --ink:#1B1F24; --mute:#5B636D; --line:#CDD2D8; --acc:#2748F0; --acc-ink:#fff;
+  --font:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --wrap:1120px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#13161A;--card:#1A1E23;--ink:#E8EAED;--mute:#9AA2AC;--line:#2A3037;--acc:#7C93FF;--acc-ink:#10131A}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .brand{font-weight:600;text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;gap:26px;list-style:none;padding:0}
+nav ul a{text-decoration:none;color:var(--mute);font-size:15px;font-weight:500;padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav ul a:hover,nav ul a.on{color:var(--ink);border-color:var(--acc)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#lattice{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;padding-top:clamp(90px,16vw,170px);padding-bottom:clamp(80px,12vw,140px);pointer-events:none}
+.hero .wrap>*{pointer-events:auto}
+.hero h1{font-size:clamp(46px,9vw,112px);line-height:.98;font-weight:600;letter-spacing:-.04em;max-width:9ch}
+.hero .lead{margin-top:28px;max-width:34em;font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--mute)}
+.hero .lead strong{color:var(--ink);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid var(--ink);font:500 15px var(--font);text-decoration:none;background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.btn:not(.primary):hover{background:var(--ink);color:var(--bg)}
+.hero .intro{opacity:0;transform:translateY(14px);animation:in .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .lead.intro{animation-delay:.25s}.hero .cta.intro{animation-delay:.4s}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:clamp(72px,10vw,120px) 0}
+.head{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:56px;align-items:end}
+h2{font-size:clamp(32px,5vw,52px);line-height:1.05;font-weight:600;letter-spacing:-.03em}
+.head p{color:var(--mute);max-width:36em}
+@media(max-width:760px){.head{grid-template-columns:1fr;gap:14px}}
+
+/* projects */
+.project{display:grid;grid-template-columns:5fr 6fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:28px}
+.project.flip{grid-template-columns:6fr 5fr}
+.project.flip .visual{order:2}
+.visual{position:relative;min-height:340px;background:var(--ink);overflow:hidden}
+.visual svg{position:absolute;inset:0;width:100%;height:100%}
+.visual .slot{position:absolute;left:16px;bottom:14px;font-size:12px;color:#fff;opacity:.55;background:rgba(0,0,0,.35);padding:3px 10px;border-radius:99px}
+.body{padding:clamp(26px,4vw,48px);display:flex;flex-direction:column}
+.meta{font-size:14px;color:var(--mute);margin-bottom:10px}
+.body h3{font-size:clamp(24px,3vw,32px);line-height:1.12;letter-spacing:-.025em;font-weight:600;margin-bottom:16px}
+.body p{color:var(--mute)}
+.body ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.body li{padding-left:22px;position:relative}
+.body li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--acc)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:26px}
+.tag{font-size:13.5px;padding:4px 12px;border:1px solid var(--line);border-radius:99px;color:var(--ink);background:var(--bg)}
+@media(max-width:860px){.project,.project.flip{grid-template-columns:1fr}.project.flip .visual{order:0}.visual{min-height:220px}}
+
+/* experience timeline */
+.timeline{position:relative;margin-left:8px;padding-left:36px;border-left:2px solid var(--line)}
+.job{position:relative;padding-bottom:48px}
+.job::before{content:"";position:absolute;left:-46px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px var(--bg)}
+.job.quiet::before{background:var(--bg);border:2px solid var(--line)}
+.job h3{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;font-weight:600;line-height:1.2}
+.job .meta{margin:6px 0 14px}
+.job p{max-width:46em;color:var(--mute)}
+.job.quiet h3{font-size:18px;font-weight:500}
+.job.quiet .meta{margin:2px 0 0}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px;padding-top:36px;border-top:1px solid var(--line)}
+.edu b{display:block;font-weight:600}
+.edu span{color:var(--mute);font-size:15px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .25s,transform .25s}
+.group:hover{border-color:var(--acc);transform:translateY(-3px)}
+.group h3{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
+.group .tags{padding-top:0;margin:0}
+
+/* contact */
+#contact{background:var(--ink);color:var(--bg)}
+#contact h2{max-width:12ch}
+#contact .sub{color:color-mix(in srgb,var(--bg) 65%,transparent);margin:18px 0 40px;max-width:30em}
+.mail{display:inline-block;font-size:clamp(24px,5.2vw,56px);font-weight:600;letter-spacing:-.035em;text-decoration:none;border-bottom:3px solid var(--acc);padding-bottom:4px;word-break:break-all;transition:color .2s}
+.mail:hover{color:var(--acc)}
+#contact .cta{margin-top:36px}
+#contact .btn{border-color:var(--bg);color:var(--bg)}
+#contact .btn:not(.primary):hover{background:var(--bg);color:var(--ink)}
+#contact .btn.primary{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+footer{padding:28px 0;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:640px){nav ul{gap:16px}nav ul a{font-size:14px}nav .brand{display:none}nav .wrap{justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.hero .intro{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Antonin Gutiez</h1>
-    <p class="subtitle">MSc Microengineering Student at EPFL</p>
-    <div class="links">
-      <a href="mailto:antonin.gutiez@epfl.ch">Email</a>
-      <a href="https://www.linkedin.com/in/VOTRE-PROFIL" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Antonin-Gutiez" target="_blank">GitHub</a>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Antonin Gutiez</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="lattice" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1 class="intro">Antonin Gutiez</h1>
+    <p class="lead intro">Microengineering student at EPFL. I fabricate, test and characterize small devices, from <strong>laser-induced graphene sensors</strong> to <strong>optical MEMS</strong>.</p>
+    <div class="cta intro">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="mailto:antonin.gutiez@epfl.ch">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About me</h2>
-    <p>
-      I am a Master's student in Microengineering at EPFL with hands-on experience in
-      experimental work and collaborative projects. Curious, reliable, and comfortable
-      learning new skills in a team environment. Outside of academics, I enjoy trail
-      running, outdoor activities, nature and cinema.
-    </p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="item">
-      <h3>Laser-Induced Graphene for Sustainable Electronics</h3>
-      <div class="meta">Semester Project | Soft Transducers Laboratory (LMTS), EPFL Neuchâtel | Feb. - Jun. 2026</div>
-      <p>
-        Fabrication and electrical characterization of laser-induced graphene (LIG) devices on
-        polymer and biodegradable substrates. Developed LIG/Zn conductive structures using laser
-        processing and electroplating, and investigated their application as temperature sensors.
-      </p>
+<main>
+<section id="projects">
+  <div class="wrap">
+    <div class="head">
+      <h2>Projects</h2>
+      <p>Hands-on work in the lab and in a student team, from a first material idea to a working device.</p>
     </div>
 
-    <div class="item">
-      <h3>CanSat Mini-Satellite</h3>
-      <div class="meta">Spacecraft Team Member | EPFL | 2023 - 2024</div>
-      <p>
-        Participated in the design of a mini-satellite (CanSat), working as a team from concept to
-        realization. Hands-on experience in electronics and project coordination.
-      </p>
+    <article class="project">
+      <div class="visual" role="img" aria-label="Illustration of a graphene hexagonal lattice with a laser track">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="hex" width="34.64" height="60" patternUnits="userSpaceOnUse" patternTransform="scale(.9)">
+              <path d="M17.32 0 34.64 10v20L17.32 40 0 30V10zM17.32 40v20M0 30l-0 0M34.64 30 34.64 50 17.32 60M0 50l17.32 10" fill="none" stroke="#8EA0FF" stroke-width="1.2" opacity=".55"/>
+            </pattern>
+            <linearGradient id="zn" x1="0" x2="1"><stop offset="0" stop-color="#2748F0" stop-opacity="0"/><stop offset=".5" stop-color="#B9C4FF"/><stop offset="1" stop-color="#2748F0" stop-opacity="0"/></linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#hex)"/>
+          <path d="M-10 300 H120 V120 H280 V280 H410" fill="none" stroke="url(#zn)" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="120" cy="120" r="5" fill="#fff"/><circle cx="280" cy="280" r="5" fill="#fff"/>
+        </svg>
+        <span class="slot">Add a photo or SEM image</span>
+      </div>
+      <div class="body">
+        <div class="meta">Semester project, Feb. – Jun. 2026 · Soft Transducers Laboratory (LMTS), EPFL Neuchâtel</div>
+        <h3>Laser-induced graphene for sustainable electronics</h3>
+        <p>Turning polymer and biodegradable substrates into conductive circuits with a laser, then testing whether they can sense temperature.</p>
+        <ul>
+          <li>Fabricated and electrically characterized laser-induced graphene (LIG) devices on polymer and biodegradable substrates.</li>
+          <li>Developed LIG/Zn conductive structures combining laser processing and electroplating.</li>
+          <li>Investigated their use as temperature sensors.</li>
+        </ul>
+        <div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">Electrical characterization</span><span class="tag">Sensors</span></div>
+      </div>
+    </article>
+
+    <article class="project flip">
+      <div class="visual" role="img" aria-label="Illustration of a satellite orbiting">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#8EA0FF" stroke-width="1.2" opacity=".6">
+            <ellipse cx="200" cy="200" rx="170" ry="70" transform="rotate(-24 200 200)"/>
+            <ellipse cx="200" cy="200" rx="120" ry="45" transform="rotate(-24 200 200)" stroke-dasharray="3 7"/>
+          </g>
+          <rect x="172" y="172" width="56" height="56" rx="6" fill="none" stroke="#fff" stroke-width="2" transform="rotate(-24 200 200)"/>
+          <path d="M150 200h22M228 200h22" stroke="#fff" stroke-width="2" transform="rotate(-24 200 200)"/>
+          <circle cx="330" cy="130" r="6" fill="#B9C4FF"/>
+        </svg>
+        <span class="slot">Add a CanSat photo</span>
+      </div>
+      <div class="body">
+        <div class="meta">2023 – 2024 · EPFL Spacecraft Team</div>
+        <h3>CanSat mini-satellite</h3>
+        <p>Member of the team designing a mini-satellite, taking it from concept to a built system.</p>
+        <ul>
+          <li>Worked on the electronics of the satellite.</li>
+          <li>Coordinated tasks inside the group, from first design to realization.</li>
+        </ul>
+        <div class="tags"><span class="tag">Electronics</span><span class="tag">Project coordination</span><span class="tag">Teamwork</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Experience</h2>
+      <p>Industry experience in qualification and reliability testing of optical MEMS.</p>
     </div>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="item">
-      <h3>MEMS Testing Intern, Sercalo Microtechnology</h3>
-      <div class="meta">Neuchâtel | Aug. - Sep. 2026</div>
-      <p>
-        Qualification and reliability testing of optical MEMS devices. Set up and performed
-        vibration, shock, and temperature tests, analyzed device performance and failure modes,
-        and participated in MEMS assembly and manufacturing.
-      </p>
+    <div class="timeline">
+      <div class="job">
+        <h3>MEMS Testing Intern, Sercalo Microtechnology</h3>
+        <div class="meta">Aug. – Sep. 2026 · Neuchâtel</div>
+        <p>Qualification and reliability testing of optical MEMS devices. I set up and ran vibration, shock and temperature tests, analyzed device performance and failure modes, and took part in MEMS assembly and manufacturing.</p>
+        <div class="tags"><span class="tag">Vibration</span><span class="tag">Shock</span><span class="tag">Thermal testing</span><span class="tag">Failure analysis</span><span class="tag">MEMS assembly</span></div>
+      </div>
+      <div class="job quiet">
+        <h3>Teaching Assistant, Mechanism Design</h3>
+        <div class="meta">EPFL · Sep. – Dec. 2025 and 2026</div>
+      </div>
+      <div class="job quiet" style="padding-bottom:0">
+        <h3>Student Assistant, Service Desk</h3>
+        <div class="meta">EPFL · 2024 – present</div>
+      </div>
     </div>
-
-    <div class="item">
-      <h3>Teaching Assistant, Mechanism Design</h3>
-      <div class="meta">EPFL, Lausanne | Sep. - Dec. 2025 and 2026</div>
-      <p>Assisted students during exercise sessions, provided guidance, and supported understanding of key concepts.</p>
+    <div class="edu">
+      <div><b>MSc Microengineering</b><span>EPFL · 2025 – present</span></div>
+      <div><b>BSc Microengineering</b><span>EPFL · 2022 – 2025</span></div>
+      <div><b>Scientific Baccalaureate</b><span>Highest Honors (Très Bien, Jury Congratulations) · 2022</span></div>
     </div>
+  </div>
+</section>
 
-    <div class="item">
-      <h3>Student Assistant, Service Desk</h3>
-      <div class="meta">EPFL, Lausanne | 2024 - Present</div>
-      <p>Providing IT support to EPFL students and staff. Teamwork and troubleshooting a variety of technical issues.</p>
+<section id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2>Skills</h2>
+      <p>What I use to design, build and measure devices.</p>
     </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <dl class="skills">
-      <dt>Data analysis & programming</dt>
-      <dd>Python, Excel, MATLAB, C, C++</dd>
-      <dt>Simulation & CAD</dt>
-      <dd>COMSOL Multiphysics, Ansys Zemax OpticStudio, Fusion 360</dd>
-      <dt>Microfabrication</dt>
-      <dd>Laser processing, electroplating, MEMS assembly</dd>
-      <dt>Testing</dt>
-      <dd>Vibration, shock, thermal testing, electrical characterization</dd>
-      <dt>Tools</dt>
-      <dd>Git, VS Code</dd>
-      <dt>Languages</dt>
-      <dd>French (native), English (Upper-Intermediate, B2)</dd>
-    </dl>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="item">
-      <h3>Master in Microengineering, EPFL</h3>
-      <div class="meta">2025 - Present</div>
+    <div class="skills">
+      <div class="group"><h3>Microfabrication</h3><div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">MEMS assembly</span></div></div>
+      <div class="group"><h3>Testing and characterization</h3><div class="tags"><span class="tag">Vibration</span><span class="tag">Shock</span><span class="tag">Thermal testing</span><span class="tag">Electrical characterization</span></div></div>
+      <div class="group"><h3>Simulation and CAD</h3><div class="tags"><span class="tag">COMSOL Multiphysics</span><span class="tag">Ansys Zemax OpticStudio</span><span class="tag">Fusion 360</span></div></div>
+      <div class="group"><h3>Programming and data</h3><div class="tags"><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Excel</span><span class="tag">Git</span><span class="tag">VS Code</span></div></div>
+      <div class="group"><h3>Languages</h3><div class="tags"><span class="tag">French, native</span><span class="tag">English, B2</span></div></div>
     </div>
+  </div>
+</section>
 
-    <div class="item">
-      <h3>Bachelor in Microengineering, EPFL</h3>
-      <div class="meta">2022 - 2025</div>
+<section id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="sub">Looking for a project, internship or thesis in microengineering? Write to me or connect on LinkedIn.</p>
+    <a class="mail" href="mailto:antonin.gutiez@epfl.ch">antonin.gutiez@epfl.ch</a>
+    <div class="cta">
+      <button class="btn primary" id="copy" type="button">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank" rel="noopener">Connect on LinkedIn</a>
     </div>
+  </div>
+</section>
+</main>
 
-    <div class="item">
-      <h3>Scientific Baccalaureate, Lycée Évariste de Parny, La Réunion</h3>
-      <div class="meta">2022</div>
-      <p>Graduated with Highest Honors (Mention Très Bien with Jury Congratulations).</p>
-    </div>
-  </section>
+<footer><div class="wrap"><span>© <span id="yr"></span> Antonin Gutiez</span><span>Lausanne, Switzerland</span></div></footer>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:antonin.gutiez@epfl.ch">antonin.gutiez@epfl.ch</a></p>
-  </section>
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
 
-  <footer>
-    &copy; 2026 Antonin Gutiez
-  </footer>
+  // copy email
+  var cp=document.getElementById('copy');
+  cp.addEventListener('click',function(){
+    var done=function(){cp.textContent='Copied';setTimeout(function(){cp.textContent='Copy email'},1800)};
+    if(navigator.clipboard){navigator.clipboard.writeText('antonin.gutiez@epfl.ch').then(done,done)}else{done()}
+  });
 
+  // active nav link
+  var links=[].slice.call(document.querySelectorAll('nav ul a'));
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})
+  },{rootMargin:'-45% 0px -50% 0px'});
+  ['projects','experience','skills','contact'].forEach(function(id){io.observe(document.getElementById(id))});
+
+  // hero lattice: a laser scans a graphene-like hex grid; the cursor lights it too
+  var cv=document.getElementById('lattice'),ctx=cv.getContext('2d');
+  var R=26,hexes=[],W,H,dpr,mx=-999,my=-999,t0=performance.now();
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function build(){
+    dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;
+    cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    hexes=[];var w=Math.sqrt(3)*R,h=1.5*R,rows=Math.ceil(H/h)+1,cols=Math.ceil(W/w)+1;
+    for(var r=0;r<rows;r++)for(var c=0;c<cols;c++){hexes.push({x:c*w+(r%2?w/2:0),y:r*h,r:r,c:c,v:0})}
+    hexes.rows=rows;hexes.cols=cols;
+    if(still){hexes.forEach(function(p){if(p.x>W*.55&&Math.random()<.12)p.v=Math.random()*.8});draw()}
+  }
+  function path(x,y){ctx.beginPath();for(var i=0;i<6;i++){var a=Math.PI/180*(60*i-30);ctx.lineTo(x+R*.94*Math.cos(a),y+R*.94*Math.sin(a))}ctx.closePath()}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var line=css('--line'),acc=css('--acc');
+    ctx.lineWidth=1;
+    for(var i=0;i<hexes.length;i++){
+      var p=hexes[i];
+      path(p.x,p.y);ctx.globalAlpha=.55;ctx.strokeStyle=line;ctx.stroke();
+      if(p.v>.02){ctx.globalAlpha=Math.min(p.v,1)*.9;ctx.strokeStyle=acc;ctx.lineWidth=1.6;ctx.stroke();ctx.lineWidth=1;ctx.globalAlpha=Math.min(p.v,1)*.12;ctx.fillStyle=acc;ctx.fill()}
+    }
+    ctx.globalAlpha=1;
+  }
+  var lx=0,ly=0;
+  function tick(now){
+    var t=(now-t0)/1000,rows=hexes.rows,cols=hexes.cols;
+    // serpentine laser path over the grid
+    var speed=26,idx=Math.floor(t*speed)%(rows*cols),row=Math.floor(idx/cols),col=idx%cols;
+    if(row%2)col=cols-1-col;
+    var w=Math.sqrt(3)*R;lx=col*w+(row%2?w/2:0);ly=row*1.5*R;
+    for(var i=0;i<hexes.length;i++){
+      var p=hexes[i];
+      if(p.r===row&&p.c===col)p.v=1;
+      var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<110)p.v=Math.max(p.v,1-d/110);
+      p.v*=.985;
+    }
+    draw();
+    ctx.fillStyle=css('--acc');ctx.beginPath();ctx.arc(lx,ly,3.5,0,7);ctx.fill();
+    requestAnimationFrame(tick);
+  }
+  var hero=document.querySelector('.hero');
+  hero.addEventListener('pointermove',function(e){var b=cv.getBoundingClientRect();mx=e.clientX-b.left;my=e.clientY-b.top});
+  hero.addEventListener('pointerleave',function(){mx=my=-999});
+  addEventListener('resize',build);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(still)draw()});
+  build();
+  if(!still)requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
