@@ -71,6 +71,10 @@ h2{font-size:clamp(32px,5vw,52px);line-height:1.05;font-weight:600;letter-spacin
 .body ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .body li{padding-left:22px;position:relative}
 .body li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--acc)}
+.pub{margin-top:22px;padding:4px 0 4px 16px;border-left:3px solid var(--acc);display:grid;gap:2px;font-size:15px}
+.pub b{font-weight:600}
+.pub span{color:var(--mute)}
+.pub a{color:var(--acc);font-weight:500;text-underline-offset:3px;width:fit-content}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:26px}
 .tag{font-size:13.5px;padding:4px 12px;border:1px solid var(--line);border-radius:99px;color:var(--ink);background:var(--bg)}
 @media(max-width:860px){.project,.project.flip{grid-template-columns:1fr}.project.flip .visual{order:0}.visual{min-height:220px}}
@@ -172,11 +176,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <li>Developed LIG/Zn conductive structures combining laser processing and electroplating.</li>
           <li>Investigated their use as temperature sensors.</li>
         </ul>
+        <div class="pub">
+          <b>Co-author of an abstract</b>
+          <span>“TITLE OF YOUR ABSTRACT”, Conference or journal, year</span>
+          <a href="#" target="_blank" rel="noopener">Read the abstract</a>
+        </div>
         <div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">Electrical characterization</span><span class="tag">Sensors</span></div>
       </div>
     </article>
 
     <article class="project flip">
+      <div class="visual" role="img" aria-label="Illustration of a ceiling radar unit signalling a bedside wellness station">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+          <path d="M40 60H360" stroke="#8EA0FF" stroke-width="1.5" opacity=".6"/>
+          <rect x="172" y="60" width="56" height="14" rx="7" fill="none" stroke="#fff" stroke-width="2"/>
+          <g fill="none" stroke="#8EA0FF" stroke-width="1.4" opacity=".7">
+            <path d="M150 110Q200 138 250 110"/><path d="M122 140Q200 188 278 140"/><path d="M96 170Q200 238 304 170"/>
+          </g>
+          <path d="M200 74V270" stroke="#B9C4FF" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+          <path d="M120 330Q120 262 200 262Q280 262 280 330Z" fill="none" stroke="#fff" stroke-width="2"/>
+          <path d="M112 336H288" stroke="#B9C4FF" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="200" cy="262" r="5" fill="#B9C4FF"/>
+        </svg>
+        <span class="slot">Add a photo of the prototype</span>
+      </div>
+      <div class="body">
+        <div class="meta">Product Design and Systems Engineering, Fall 2025 · EPFL · Team of 5</div>
+        <h3>The Guardian Angel: in-home fall prevention</h3>
+        <p>A non-wearable system for elderly people living alone. Ceiling radar units detect falls and alert a wellness station that also measures heart rate, SpO2 and temperature, with a web platform for relatives and caregivers.</p>
+        <ul>
+          <li>Designed and implemented the communication protocol between the ceiling units and the master station (ESP32, C++), reworked after ESP-NOW compatibility issues between ESP32 variants.</li>
+          <li>Integrated the sensor, communication and alert code into one working system, together with a teammate.</li>
+          <li>Helped select the sensors and interviewed healthcare professionals (occupational therapist, nursing home nurse, CHUV geriatrics) to define user needs.</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">BLE</span><span class="tag">mmWave radar</span><span class="tag">Embedded software</span><span class="tag">User interviews</span></div>
+      </div>
+    </article>
+
+    <article class="project">
       <div class="visual" role="img" aria-label="Illustration of a satellite orbiting">
         <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
           <g fill="none" stroke="#8EA0FF" stroke-width="1.2" opacity=".6">
@@ -195,9 +232,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         <p>Member of the team designing a mini-satellite, taking it from concept to a built system.</p>
         <ul>
           <li>Worked on the electronics of the satellite.</li>
+          <li>3D-printed mechanical parts of the mini-satellite.</li>
           <li>Coordinated tasks inside the group, from first design to realization.</li>
         </ul>
-        <div class="tags"><span class="tag">Electronics</span><span class="tag">Project coordination</span><span class="tag">Teamwork</span></div>
+        <div class="tags"><span class="tag">Electronics</span><span class="tag">3D printing</span><span class="tag">Project coordination</span><span class="tag">Teamwork</span></div>
       </div>
     </article>
   </div>
@@ -240,10 +278,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
       <p>What I use to design, build and measure devices.</p>
     </div>
     <div class="skills">
-      <div class="group"><h3>Microfabrication</h3><div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">MEMS assembly</span></div></div>
+      <div class="group"><h3>Microfabrication</h3><div class="tags"><span class="tag">Laser processing</span><span class="tag">Electroplating</span><span class="tag">MEMS assembly</span><span class="tag">3D printing</span></div></div>
       <div class="group"><h3>Testing and characterization</h3><div class="tags"><span class="tag">Vibration</span><span class="tag">Shock</span><span class="tag">Thermal testing</span><span class="tag">Electrical characterization</span></div></div>
       <div class="group"><h3>Simulation and CAD</h3><div class="tags"><span class="tag">COMSOL Multiphysics</span><span class="tag">Ansys Zemax OpticStudio</span><span class="tag">Fusion 360</span></div></div>
-      <div class="group"><h3>Programming and data</h3><div class="tags"><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Excel</span><span class="tag">Git</span><span class="tag">VS Code</span></div></div>
+      <div class="group"><h3>Programming and data</h3><div class="tags"><span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">BLE communication</span><span class="tag">Excel</span><span class="tag">Git</span><span class="tag">VS Code</span></div></div>
       <div class="group"><h3>Languages</h3><div class="tags"><span class="tag">French, native</span><span class="tag">English, B2</span></div></div>
     </div>
   </div>
