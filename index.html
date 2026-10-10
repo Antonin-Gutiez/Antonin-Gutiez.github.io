@@ -3,39 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonin Gutiez - Portfolio</title>
+  <title>Antonin Gutiez - Microengineering Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
-    h1 { margin-bottom: 0; }
-    h2 { border-bottom: 2px solid #3b82f6; padding-bottom: 4px; margin-top: 40px; }
-    .subtitle { color: #666; margin-top: 4px; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      line-height: 1.6;
+      color: #222;
+      background: #fafafa;
+    }
+    header { padding: 50px 0 20px; }
+    h1 { margin: 0; font-size: 2.4em; }
+    .subtitle { color: #555; margin: 6px 0 14px; font-size: 1.15em; }
+    .links a { margin-right: 16px; color: #2563eb; text-decoration: none; font-weight: 500; }
+    .links a:hover { text-decoration: underline; }
+    nav { margin: 20px 0; padding: 10px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+    nav a { margin-right: 18px; color: #333; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: #2563eb; }
+    h2 { border-bottom: 2px solid #2563eb; padding-bottom: 4px; margin-top: 45px; }
+    .item { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+    .item h3 { margin: 0 0 2px; font-size: 1.1em; }
+    .meta { color: #777; font-size: 0.9em; margin-bottom: 8px; }
+    .item p { margin: 6px 0 0; }
+    .skills dt { font-weight: 600; margin-top: 10px; }
+    .skills dd { margin: 2px 0 0 0; color: #444; }
+    footer { margin-top: 60px; color: #888; font-size: 0.9em; text-align: center; }
   </style>
 </head>
 <body>
-  <h1>Antonin Gutiez</h1>
-  <p class="subtitle">Engineering student | Your field here</p>
 
-  <h2>About me</h2>
-  <p>Short introduction about yourself.</p>
+  <header>
+    <h1>Antonin Gutiez</h1>
+    <p class="subtitle">MSc Microengineering Student at EPFL</p>
+    <div class="links">
+      <a href="mailto:antonin.gutiez@epfl.ch">Email</a>
+      <a href="https://www.linkedin.com/in/VOTRE-PROFIL" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Antonin-Gutiez" target="_blank">GitHub</a>
+    </div>
+  </header>
 
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Project 1</strong>: short description</li>
-    <li><strong>Project 2</strong>: short description</li>
-  </ul>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <h2>Internships</h2>
-  <ul>
-    <li><strong>Company name</strong> (dates): what you did</li>
-  </ul>
+  <section id="about">
+    <h2>About me</h2>
+    <p>
+      I am a Master's student in Microengineering at EPFL with hands-on experience in
+      experimental work and collaborative projects. Curious, reliable, and comfortable
+      learning new skills in a team environment. Outside of academics, I enjoy trail
+      running, outdoor activities, nature and cinema.
+    </p>
+  </section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Skill 1</li>
-    <li>Skill 2</li>
-  </ul>
+  <section id="projects">
+    <h2>Projects</h2>
 
-  <h2>Contact</h2>
-  <p>Email: your.email@example.com</p>
+    <div class="item">
+      <h3>Laser-Induced Graphene for Sustainable Electronics</h3>
+      <div class="meta">Semester Project | Soft Transducers Laboratory (LMTS), EPFL Neuchâtel | Feb. - Jun. 2026</div>
+      <p>
+        Fabrication and electrical characterization of laser-induced graphene (LIG) devices on
+        polymer and biodegradable substrates. Developed LIG/Zn conductive structures using laser
+        processing and electroplating, and investigated their application as temperature sensors.
+      </p>
+    </div>
+
+    <div class="item">
+      <h3>CanSat Mini-Satellite</h3>
+      <div class="meta">Spacecraft Team Member | EPFL | 2023 - 2024</div>
+      <p>
+        Participated in the design of a mini-satellite (CanSat), working as a team from concept to
+        realization. Hands-on experience in electronics and project coordination.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="item">
+      <h3>MEMS Testing Intern, Sercalo Microtechnology</h3>
+      <div class="meta">Neuchâtel | Aug. - Sep. 2026</div>
+      <p>
+        Qualification and reliability testing of optical MEMS devices. Set up and performed
+        vibration, shock, and temperature tests, analyzed device performance and failure modes,
+        and participated in MEMS assembly and manufacturing.
+      </p>
+    </div>
+
+    <div class="item">
+      <h3>Teaching Assistant, Mechanism Design</h3>
+      <div class="meta">EPFL, Lausanne | Sep. - Dec. 2025 and 2026</div>
+      <p>Assisted students during exercise sessions, provided guidance, and supported understanding of key concepts.</p>
+    </div>
+
+    <div class="item">
+      <h3>Student Assistant, Service Desk</h3>
+      <div class="meta">EPFL, Lausanne | 2024 - Present</div>
+      <p>Providing IT support to EPFL students and staff. Teamwork and troubleshooting a variety of technical issues.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Data analysis & programming</dt>
+      <dd>Python, Excel, MATLAB, C, C++</dd>
+      <dt>Simulation & CAD</dt>
+      <dd>COMSOL Multiphysics, Ansys Zemax OpticStudio, Fusion 360</dd>
+      <dt>Microfabrication</dt>
+      <dd>Laser processing, electroplating, MEMS assembly</dd>
+      <dt>Testing</dt>
+      <dd>Vibration, shock, thermal testing, electrical characterization</dd>
+      <dt>Tools</dt>
+      <dd>Git, VS Code</dd>
+      <dt>Languages</dt>
+      <dd>French (native), English (Upper-Intermediate, B2)</dd>
+    </dl>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="item">
+      <h3>Master in Microengineering, EPFL</h3>
+      <div class="meta">2025 - Present</div>
+    </div>
+
+    <div class="item">
+      <h3>Bachelor in Microengineering, EPFL</h3>
+      <div class="meta">2022 - 2025</div>
+    </div>
+
+    <div class="item">
+      <h3>Scientific Baccalaureate, Lycée Évariste de Parny, La Réunion</h3>
+      <div class="meta">2022</div>
+      <p>Graduated with Highest Honors (Mention Très Bien with Jury Congratulations).</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:antonin.gutiez@epfl.ch">antonin.gutiez@epfl.ch</a></p>
+  </section>
+
+  <footer>
+    &copy; 2026 Antonin Gutiez
+  </footer>
+
 </body>
 </html>
