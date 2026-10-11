@@ -66,6 +66,7 @@ h2{font-size:clamp(32px,5vw,52px);line-height:1.05;font-weight:600;letter-spacin
 .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .project:hover .visual img{transform:scale(1.03)}
 .visual.tall{min-height:440px}
+.visual.has-img svg,.visual.has-img .slot{display:none}
 .visual.fit{background:var(--card)}
 .visual.fit img{object-fit:contain;padding:14px}
 .project:hover .visual.fit img{transform:none}
@@ -175,7 +176,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <circle cx="120" cy="120" r="5" fill="#fff"/><circle cx="280" cy="280" r="5" fill="#fff"/>
         </svg>
         <span class="slot">Add a photo or SEM image</span>
-        <img src="images/lig.png" alt="Laser-induced graphene and zinc electroplated conductors on polyimide and wood" loading="lazy" onerror="this.remove()">
+        <img src="images/lig.png" alt="Laser-induced graphene and zinc electroplated conductors on polyimide and wood" loading="lazy" onload="this.closest('.visual').classList.add('has-img')" onerror="this.remove()">
       </div>
       <div class="body">
         <div class="meta">Semester project, Feb. – Jun. 2026 · Soft Transducers Laboratory (LMTS), EPFL Neuchâtel</div>
@@ -209,7 +210,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <path d="M120 300V330M280 300V330" stroke="#8EA0FF" stroke-width="1.5" opacity=".6"/>
         </svg>
         <span class="slot">Add a COMSOL screenshot</span>
-        <img src="images/nems.png" alt="COMSOL simulation of the graphene nanoribbon torsional device" loading="lazy" onerror="this.remove()">
+        <img src="images/nems.png" alt="COMSOL simulation of the graphene nanoribbon torsional device" loading="lazy" onload="this.closest('.visual').classList.add('has-img')" onerror="this.remove()">
       </div>
       <div class="body">
         <div class="meta">MNIS, Introduction to Finite Element Modeling, Fall 2025 · EPFL · Team of 4</div>
@@ -240,8 +241,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
         </svg>
         <span class="slot">Add master_station.png and ceiling_unit.png</span>
         <div class="duo">
-          <figure><img src="images/master_station.png" alt="The Guardian Angel master wellness station, the Hand" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Master station, “the Hand”</figcaption></figure>
-          <figure><img src="images/ceiling_unit.png" alt="The Guardian Angel ceiling radar unit, the Eye" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Ceiling unit, “the Eye”</figcaption></figure>
+          <figure><img src="images/master_station.png" alt="The Guardian Angel master wellness station, the Hand" loading="lazy" onload="this.closest('.visual').classList.add('has-img')" onerror="this.parentNode.remove()"><figcaption>Master station, “the Hand”</figcaption></figure>
+          <figure><img src="images/ceiling_unit.png" alt="The Guardian Angel ceiling radar unit, the Eye" loading="lazy" onload="this.closest('.visual').classList.add('has-img')" onerror="this.parentNode.remove()"><figcaption>Ceiling unit, “the Eye”</figcaption></figure>
         </div>
       </div>
       <div class="body">
@@ -269,18 +270,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
           <circle cx="330" cy="130" r="6" fill="#B9C4FF"/>
         </svg>
         <span class="slot">Add a CanSat photo</span>
-        <img src="images/cansat.png" alt="The CanSat mini-satellite built by the EPFL Spacecraft Team" loading="lazy" onerror="this.remove()">
+        <img src="images/cansat.png" alt="The CanSat mini-satellite built by the EPFL Spacecraft Team" loading="lazy" onload="this.closest('.visual').classList.add('has-img')" onerror="this.remove()">
       </div>
       <div class="body">
         <div class="meta">2023 – 2024 · EPFL Spacecraft Team</div>
-        <h3>CanSat mini-satellite</h3>
-        <p>Member of the team designing a mini-satellite, taking it from concept to a built system.</p>
+        <h3>ESA CanSat mini-satellite</h3>
+        <p>CanSat is an ESA initiative in which student teams design, build and launch a satellite the size of a soda can. I was a member of the EPFL Spacecraft Team designing ours, from concept to a built system.</p>
         <ul>
           <li>Worked on the electronics of the satellite.</li>
           <li>3D-printed mechanical parts of the mini-satellite.</li>
           <li>Coordinated tasks inside the group, from first design to realization.</li>
         </ul>
-        <div class="tags"><span class="tag">Electronics</span><span class="tag">3D printing</span><span class="tag">Project coordination</span><span class="tag">Teamwork</span></div>
+        <div class="pub">
+          <b>CanSat requirements document</b>
+          <span>Requirements specification of the mini-satellite.</span>
+          <a href="docs/Cansat_requirement.pdf" target="_blank" rel="noopener">Open the requirements document (PDF)</a>
+        </div>
+        <div class="tags"><span class="tag">ESA CanSat</span><span class="tag">Electronics</span><span class="tag">3D printing</span><span class="tag">Project coordination</span><span class="tag">Teamwork</span></div>
       </div>
     </article>
   </div>
